@@ -14,7 +14,7 @@ namespace pvc\config;
 class MsgConfig
 {
 
-	protected array $domainCatalogs = [
+	protected static array $domainCatalogs = [
 		// key is the domain name for the messages
 		// paths should be relative to the project root
 		"messages" => "path/to/messages"
