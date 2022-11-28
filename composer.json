@@ -1,0 +1,32 @@
+{
+	"name": "pvc/config",
+	"description": "pvc configuration library",
+	"type": "project",
+	"authors": [
+		{
+			"name": "Doug Wilbourne",
+			"email": "dougwilbourne@gmail.com"
+		}
+	],
+	"license": "MIT",
+	"config": {
+		"php": "8.1"
+	},
+	"autoload": {
+		"psr-4": {
+			"pvc\\": "src/",
+			"tests\\": "tests/"
+		}
+	},
+	"minimum-stability": "dev",
+	"require": {
+		"pvc/interfaces": "*"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "*",
+		"mockery/mockery": "*",
+		"squizlabs/php_codesniffer": "*",
+		"friendsofphp/php-cs-fixer": "*",
+		"phpstan/phpstan": "*"
+	}
+}
