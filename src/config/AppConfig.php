@@ -8,14 +8,16 @@ declare (strict_types=1);
 namespace pvc\config;
 
 
+use pvc\interfaces\config\AppConfigInterface;
+
 /**
  * Class AppConfig
  */
-class AppConfig
+class AppConfig implements AppConfigInterface
 {
 	protected string $projectRoot;
 
-	static function getProjectRoot() : string
+	static function getProjectRoot(): string
 	{
 		return "/path/to/project/root";
 	}

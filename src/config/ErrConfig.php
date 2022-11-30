@@ -8,26 +8,20 @@ declare (strict_types=1);
 namespace pvc\config;
 
 
+use pvc\interfaces\config\ErrConfigInterface;
+
 /**
  * Class ErrConfig
  */
-class ErrConfig
+class ErrConfig implements ErrConfigInterface
 {
+	const INTERFACES_CODE = 10;
+	const MSG_CODE = 11;
+	const ERR_CODE = 12;
 
-	public static function getExceptionMsgCodePrefix(string $msgId): int
+	public static function getExceptionMsgLocale(): string
 	{
-		/**
-		 * @var array|string[]
-		 * the value is the prefix which is prepended to all exception codes, the key is the name of the
-		 * pvc library in which the exception message lives.  This allows us to more easily create globally
-		 * unique exception codes without using a central repository for them.
-		 */
-		$errCodePrefixes = [
-			"interfaces" => 10,
-			"msg" => 11,
-			"err" => 12,
-		];
-
-		return $errCodePrefixes[$msgId];
+		return "en_US";
 	}
+
 }

@@ -8,15 +8,26 @@ declare (strict_types=1);
 namespace pvc\config;
 
 
+use pvc\interfaces\config\MsgConfigInterface;
+use pvc\interfaces\msg\DomainCatalogLoaderInterface;
+use pvc\msg\catalog\DomainCatalogFileLoaderPHP;
+
 /**
- * Class MsgConfig.  Contains the information about where message catalogs live
+ * Class MsgConfig.  Contains the information about where message catalogs live and what sort of loader
+ * you need to load each catalog
  */
-class MsgConfig
+class MsgConfig implements MsgConfigInterface
 {
 
-	protected static array $domainCatalogs = [
-		// key is the domain name for the messages
-		// paths should be relative to the project root
-		"messages" => "path/to/messages"
-	];
+	public static function getDomainCatalogLoader(string $domain): DomainCatalogLoaderInterface
+	{
+		$domainCatalogs = [
+			// key is the domain name for the messages
+			// value needs to be abstracted out beyond just a filepath?
+			"messages" => "path/to/messages"
+		];
+		$loader = new DomainCatalogFileLoaderPHP();
+		$loader->setDomainCatalogFilename($domainCatalogs[$domain]);
+		return $loader;
+	}
 }
