@@ -15,13 +15,14 @@ use pvc\interfaces\config\ErrConfigInterface;
  */
 class ErrConfig implements ErrConfigInterface
 {
-	const INTERFACES_CODE = 10;
-	const MSG_CODE = 11;
-	const ERR_CODE = 12;
-
-	public static function getExceptionMsgLocale(): string
+	public static function createGlobalExceptionCode(string $namespacedExceptionCatalogClassname, int
+	$localCatalogCode):	int
 	{
-		return "en_US";
+		$globalPrefixes = [
+			"pvc\err\ExceptionCatalog" => 1000,
+		];
+		
+		$globalPrefix = $globalPrefixes[$namespacedExceptionCatalogClassname];
+		return $globalPrefix * 1000 + $localCatalogCode;
 	}
-
 }
