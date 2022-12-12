@@ -15,14 +15,19 @@ use pvc\interfaces\config\ErrConfigInterface;
  */
 class ErrConfig implements ErrConfigInterface
 {
-	public static function createGlobalExceptionCode(string $namespacedExceptionCatalogClassname, int
-	$localCatalogCode):	int
+
+
+	public static function createExceptionCode(string $libraryName, int $localCatalogCode):	int
+	{
+		$globalPrefix = (string) self::getLibraryCode($libraryName);
+		return (int) ($globalPrefix . $localCatalogCode);
+	}
+
+	public static function getLibraryCode(string $libraryName): int
 	{
 		$globalPrefixes = [
-			"pvc\err\ExceptionCatalog" => 1000,
+			'pvc\err\stock' => 1000,
 		];
-		
-		$globalPrefix = $globalPrefixes[$namespacedExceptionCatalogClassname];
-		return $globalPrefix * 1000 + $localCatalogCode;
+		return $globalPrefixes[$libraryName] ?? 0;
 	}
 }

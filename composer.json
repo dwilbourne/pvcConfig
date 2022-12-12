@@ -21,7 +21,8 @@
 	"minimum-stability": "dev",
 	"require": {
 		"pvc/interfaces": "*",
-		"pvc/msg": "*"
+		"pvc/msg": "*",
+		"pvc/err": "*"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "*",
