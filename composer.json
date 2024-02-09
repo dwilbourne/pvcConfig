@@ -14,8 +14,8 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"pvc\\": "src/",
-			"tests\\": "tests/"
+			"pvc\\config\\": "src/",
+			"pvcTests\\config\\": "tests/"
 		}
 	},
 	"minimum-stability": "dev",
@@ -24,8 +24,7 @@
 		"pvc/err": "*"
 	},
 	"require-dev": {
-		"phpunit/phpunit": "*",
-		"mockery/mockery": "*",
+		"phpunit/phpunit": "^9",
 		"squizlabs/php_codesniffer": "*",
 		"friendsofphp/php-cs-fixer": "*",
 		"phpstan/phpstan": "*"
